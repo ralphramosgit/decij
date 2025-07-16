@@ -181,7 +181,7 @@ import Navbar from '@/components/Navbar'
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('job')
   const [careerTitle, setCareerTitle] = useState('')
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+//   const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
 //   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 //     const file = e.target.files?.[0]
@@ -201,14 +201,14 @@ export default function Dashboard() {
       return
     }
     
-    if (!selectedFile) {
-      alert('Please upload a PDF file')
-      return
-    }
+    // if (!selectedFile) {
+    //   alert('Please upload a PDF file')
+    //   return
+    // }
 
     // Handle form submission here
     console.log('Career Title:', careerTitle)
-    console.log('Selected File:', selectedFile)
+    // console.log('Selected File:', selectedFile)
     
     // You can add your submission logic here
     alert('Form submitted successfully!')
