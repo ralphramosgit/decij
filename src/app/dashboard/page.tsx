@@ -183,15 +183,15 @@ export default function Dashboard() {
   const [careerTitle, setCareerTitle] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file && file.type === 'application/pdf') {
-      setSelectedFile(file)
-    } else {
-      alert('Please select a PDF file')
-      e.target.value = ''
-    }
-  }
+//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const file = e.target.files?.[0]
+//     if (file && file.type === 'application/pdf') {
+//       setSelectedFile(file)
+//     } else {
+//       alert('Please select a PDF file')
+//       e.target.value = ''
+//     }
+//   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
