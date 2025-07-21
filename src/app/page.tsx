@@ -24,7 +24,7 @@ export default function Home() {
               Welcome to <span className="text-blue-600">DeciJ</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              Decide your path today
+              Job Decision starts here. Make it simple, make it smart.
             </p>
           </div>
 
