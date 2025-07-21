@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, origins=[
     "http://localhost:3000",          
     "https://decij.web.app",          
-    "https://decij.firebaseapp.com",   
+    "https://decij.web.app/",   
     "http://3.101.105.213:5000"        
 ])
 
