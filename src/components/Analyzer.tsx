@@ -28,12 +28,20 @@ const Analyzer: React.FC = () => {
 
         setLoading(true)
 
+
+        const proxyUrls = [
+            'https://corsproxy.io/?',
+            'https://cors-anywhere.herokuapp.com/',
+            'https://proxy.cors.sh/',
+            'https://api.codetabs.com/v1/proxy?quest='
+        ];
+
         try {
 
         const isDevelopment = window.location.hostname === 'localhost';
         const baseUrl = isDevelopment 
             ? 'http://3.101.105.213:5000/api/analyze-career'
-            : 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://3.101.105.213:5000/api/analyze-career');
+            : proxyUrls + encodeURIComponent('http://3.101.105.213:5000/api/analyze-career');
         console.log('Using URL:', baseUrl);
 
 
