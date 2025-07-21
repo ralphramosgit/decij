@@ -4,7 +4,13 @@ from career_analyzer import analyzer_bp
 from roadmap import roadmap_bp
 
 app = Flask(__name__)
-CORS(app)
+
+CORS(app, origins=[
+    "http://localhost:3000",          
+    "https://decij.web.app",          
+    "https://decij.firebaseapp.com",   
+    "http://3.101.105.213:5000"        
+])
 
 # Add a health check route
 @app.route('/health')
