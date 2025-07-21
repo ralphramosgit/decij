@@ -29,7 +29,7 @@ const Analyzer: React.FC = () => {
         setLoading(true)
 
         try {
-            const response = await fetch('http://3.101.105.213:5000/api/analyze-career', {
+            const response = await fetch('https://cors-anywhere.herokuapp.com/http://3.101.105.213:5000/api/analyze-career', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

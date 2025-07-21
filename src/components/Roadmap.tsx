@@ -98,7 +98,7 @@ export default function Roadmap() {
     }
 
     try {
-      const response = await fetch('http://3.101.105.213:5000/api/career-roadmap', {
+      const response = await fetch('https://cors-anywhere.herokuapp.com/http://3.101.105.213:5000/api/career-roadmap', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
