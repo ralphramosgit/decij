@@ -18,34 +18,67 @@ jobs:
         echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/deploy_key
         chmod 600 ~/.ssh/deploy_key
         
+        # Debug SSH key
+        echo "SSH key first line:"
+        head -1 ~/.ssh/deploy_key
+        echo "SSH key last line:"
+        tail -1 ~/.ssh/deploy_key
+        
         # Add EC2 to known hosts to avoid host verification
         ssh-keyscan 3.101.105.213 >> ~/.ssh/known_hosts
         
+        # Test SSH connection first
+        echo "Testing SSH connection..."
+        ssh -i ~/.ssh/deploy_key -o ConnectTimeout=10 ec2-user@3.101.105.213 "echo 'SSH connection successful'"
+        
         # Deploy to EC2
+        echo "Starting deployment..."
         ssh -i ~/.ssh/deploy_key ec2-user@3.101.105.213 << 'EOF'
         set -e
-        echo "Starting deployment..."
+        echo "Connected to EC2 successfully!"
+        echo "Current directory: $(pwd)"
+        echo "Available space: $(df -h ~)"
         
         # Clone repo if it doesn't exist
         if [ ! -d "decij" ]; then
           echo "Cloning repository..."
           git clone https://github.com/ralphramosgit/decij.git decij
+        else
+          echo "Repository already exists"
         fi
         
         # Navigate and update
         echo "Updating code..."
         cd decij
+        echo "Current git status:"
+        git status
         git fetch origin
         git reset --hard origin/main
         
+        # Check Docker
+        echo "Checking Docker..."
+        docker --version
+        docker ps -a
+        
         # Stop existing container
         echo "Stopping existing container..."
-        docker stop decij-backend 2>/dev/null || echo "No container to stop"
-        docker rm decij-backend 2>/dev/null || echo "No container to remove"
+        if docker ps | grep -q decij-backend; then
+          docker stop decij-backend
+          echo "Container stopped"
+        else
+          echo "No running container found"
+        fi
+        
+        if docker ps -a | grep -q decij-backend; then
+          docker rm decij-backend
+          echo "Container removed"
+        else
+          echo "No container to remove"
+        fi
         
         # Build new image
         echo "Building Docker image..."
-        docker build -t decij-backend .
+        docker build -t decij-backend . 2>&1
         
         # Run new container
         echo "Starting new container..."
