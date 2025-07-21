@@ -98,7 +98,15 @@ export default function Roadmap() {
     }
 
     try {
-      const response = await fetch('https://cors-anywhere.herokuapp.com/http://3.101.105.213:5000/api/career-roadmap', {
+      const isDevelopment = window.location.hostname === 'localhost';
+      const baseUrl = isDevelopment 
+        ? 'http://3.101.105.213:5000/api/career-roadmap'
+        : 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://3.101.105.213:5000/api/career-roadmap');
+
+      console.log('Using URL:', baseUrl);
+
+
+      const response = await fetch(baseUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
