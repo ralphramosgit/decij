@@ -97,18 +97,18 @@ export default function Roadmap() {
       mermaidRef.current.innerHTML = '';
     }
 
-    const proxyUrls = [
-      'https://corsproxy.io/?',
-      'https://cors-anywhere.herokuapp.com/',
-      'https://proxy.cors.sh/',
-      'https://api.codetabs.com/v1/proxy?quest='
-    ];
-
     try {
+
+
+      const proxyUrl = 'https://corsproxy.io/?'; // Select one reliable proxy
+      const targetUrl = 'http://3.101.105.213:5000/api/analyze-career';
+
       const isDevelopment = window.location.hostname === 'localhost';
+
+      // Use the proxy for the deployed site, otherwise use the direct URL for local development
       const baseUrl = isDevelopment 
-        ? 'http://3.101.105.213:5000/api/career-roadmap'
-        : proxyUrls + encodeURIComponent('http://3.101.105.213:5000/api/career-roadmap');
+          ? targetUrl
+          : proxyUrl + encodeURIComponent(targetUrl);
 
       console.log('Using URL:', baseUrl);
 
