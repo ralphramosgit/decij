@@ -32,6 +32,55 @@
 // // });
 
 
+// import {onRequest} from "firebase-functions/v1/https";
+// import * as logger from "firebase-functions/logger";
+// import axios from "axios";
+
+// // This is the base URL for your EC2 backend.
+// const apiBaseUrl = "http://3.101.105.213";
+
+// export const api = onRequest(async (request, response) => {
+//   // Set CORS headers to allow your web app to access this function.
+//   response.set("Access-Control-Allow-Origin", "https://decij.web.app");
+//   response.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//   response.set("Access-Control-Allow-Headers", "Content-Type");
+
+//   // Handle preflight OPTIONS requests.
+//   if (request.method === "OPTIONS") {
+//     response.status(204).send("");
+//     return;
+//   }
+
+//   const targetUrl = `${apiBaseUrl}${request.originalUrl}`;
+//   logger.info(`Proxying request to: ${targetUrl}`);
+
+//   try {
+//     // Forward the incoming request to your EC2 backend using axios.
+//     const axiosResponse = await axios({
+//       method: request.method,
+//       url: targetUrl,
+//       data: request.body,
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       responseType: "json",
+//     });
+
+//     // Send the response from the EC2 server back to the original caller.
+//     response.status(axiosResponse.status).send(axiosResponse.data);
+//   } catch (error) {
+//     logger.error("Error proxying request:", error);
+//     if (axios.isAxiosError(error) && error.response) {
+//       // If the error came from the backend service, forward its response.
+//       response.status(error.response.status).send(error.response.data);
+//     } else {
+//       // For other errors (e.g., network issues), send a generic 500 error.
+//       response.status(500).send("An unexpected error occurred while proxying the request.");
+//     }
+//   }
+// });
+
+
 import {onRequest} from "firebase-functions/v1/https";
 import * as logger from "firebase-functions/logger";
 import axios from "axios";
@@ -68,13 +117,13 @@ export const api = onRequest(async (request, response) => {
 
     // Send the response from the EC2 server back to the original caller.
     response.status(axiosResponse.status).send(axiosResponse.data);
-  } catch (error) {
+  } catch (error: any) { // Change is in this block
     logger.error("Error proxying request:", error);
-    if (axios.isAxiosError(error) && error.response) {
-      // If the error came from the backend service, forward its response.
+    // Check if the error object has a 'response' property.
+    // This is a reliable signature of an Axios network error.
+    if (error.response) {
       response.status(error.response.status).send(error.response.data);
     } else {
-      // For other errors (e.g., network issues), send a generic 500 error.
       response.status(500).send("An unexpected error occurred while proxying the request.");
     }
   }
