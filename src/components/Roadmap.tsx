@@ -101,8 +101,8 @@ export default function Roadmap() {
 
 
       const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://3.101.105.213:5000/api/analyze-career'
-        : 'http://3.101.105.213:5000/api/analyze-career';
+        ? 'http://3.101.105.213:5000/api/career-roadmap'
+        : 'http://3.101.105.213/api/career-roadmap';
 
         console.log('Using URL:', baseUrl);
 
