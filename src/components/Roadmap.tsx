@@ -106,7 +106,7 @@ export default function Roadmap() {
 
       //   console.log('Using URL:', baseUrl);
 
-      const baseUrl = 'http://3.101.105.213/api/career-roadmap'
+      const baseUrl = '/api/career-roadmap'
 
 
       const response = await fetch(baseUrl, {
