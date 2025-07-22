@@ -35,7 +35,12 @@ const Analyzer: React.FC = () => {
             // console.log('Using URL:', baseUrl);
 
 
-            const baseUrl = '/api/analyze-career'
+            // const baseUrl = '/api/analyze-career'
+
+            const baseUrl = window.location.hostname === 'localhost'
+                ? 'http://3.101.105.213:5000/api/analyze-career'
+                : '/api/analyze-career';
+
 
 
             // http://3.101.105.213:5000/api/analyze-career

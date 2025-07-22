@@ -106,7 +106,11 @@ export default function Roadmap() {
 
       //   console.log('Using URL:', baseUrl);
 
-      const baseUrl = '/api/career-roadmap'
+      // const baseUrl = '/api/career-roadmap'
+
+        const baseUrl = window.location.hostname === 'localhost'
+                ? 'http://3.101.105.213:5000/api/career-roadmap'
+                : '/api/career-roadmap';
 
 
       const response = await fetch(baseUrl, {
