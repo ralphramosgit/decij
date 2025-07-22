@@ -1,0 +1,174 @@
+[debug] [2025-07-22T09:15:52.816Z] ----------------------------------------------------------------------
+[debug] [2025-07-22T09:15:52.820Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ralph\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-22T09:15:52.820Z] CLI Version:   14.11.0
+[debug] [2025-07-22T09:15:52.820Z] Platform:      win32
+[debug] [2025-07-22T09:15:52.821Z] Node Version:  v22.12.0
+[debug] [2025-07-22T09:15:52.821Z] Time:          Mon Jul 21 2025 23:15:52 GMT-1000 (Hawaii-Aleutian Standard Time)
+[debug] [2025-07-22T09:15:52.821Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-22T09:15:53.062Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T09:15:53.063Z] > authorizing via signed-in user (22ralph.ramos@gmail.com)
+[debug] [2025-07-22T09:15:53.063Z] [iam] checking project decij-1eaab for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-22T09:15:53.064Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:15:53.064Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:15:53.065Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions [none]
+[debug] [2025-07-22T09:15:53.065Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions x-goog-quota-user=projects/decij-1eaab
+[debug] [2025-07-22T09:15:53.065Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T09:15:54.102Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions 200
+[debug] [2025-07-22T09:15:54.102Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T09:15:54.102Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:15:54.103Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:15:54.103Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/decij-1eaab/serviceAccounts/decij-1eaab@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-22T09:15:54.103Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/decij-1eaab/serviceAccounts/decij-1eaab@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-22T09:15:54.712Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/decij-1eaab/serviceAccounts/decij-1eaab@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-07-22T09:15:54.712Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/decij-1eaab/serviceAccounts/decij-1eaab@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'decij-1eaab'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script. 
+[debug] [2025-07-22T09:16:01.064Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.064Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.065Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab [none]
+[debug] [2025-07-22T09:16:01.376Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab 200
+[debug] [2025-07-22T09:16:01.377Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab {"projectNumber":"627464272434","projectId":"decij-1eaab","lifecycleState":"ACTIVE","name":"DeciJ","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-16T03:47:42.472595Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-22T09:16:01.384Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.385Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.385Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/decij-1eaab/adminSdkConfig [none]
+[debug] [2025-07-22T09:16:01.881Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/decij-1eaab/adminSdkConfig 200
+[debug] [2025-07-22T09:16:01.882Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/decij-1eaab/adminSdkConfig {"projectId":"decij-1eaab","storageBucket":"decij-1eaab.firebasestorage.app"}
+[debug] [2025-07-22T09:16:01.882Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.883Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:01.883Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/decij-1eaab/configs [none]
+[debug] [2025-07-22T09:16:02.391Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/decij-1eaab/configs 200
+[debug] [2025-07-22T09:16:02.391Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/decij-1eaab/configs {}
+[debug] [2025-07-22T09:16:02.395Z] Validating nodejs source
+[debug] [2025-07-22T09:16:03.675Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-07-22T09:16:03.675Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-22T09:16:03.679Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-22T09:16:03.701Z] Found firebase-functions binary at 'C:\Users\ralph\projects\decij\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8087
+
+[debug] [2025-07-22T09:16:04.791Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-07-22T09:16:08.853Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T09:16:08.854Z] > authorizing via signed-in user (22ralph.ramos@gmail.com)
+[debug] [2025-07-22T09:16:08.854Z] [iam] checking project decij-1eaab for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-07-22T09:16:08.854Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:08.854Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:08.855Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions [none]
+[debug] [2025-07-22T09:16:08.855Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions x-goog-quota-user=projects/decij-1eaab
+[debug] [2025-07-22T09:16:08.855Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T09:16:09.129Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions 200
+[debug] [2025-07-22T09:16:09.130Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T09:16:09.131Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:09.131Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:09.132Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/decij-1eaab/instances pageSize=100&pageToken=
+[debug] [2025-07-22T09:16:09.731Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/decij-1eaab/instances 200
+[debug] [2025-07-22T09:16:09.731Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/decij-1eaab/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\ralph\projects\decij\functions (99.11 KB) for uploading 
+[debug] [2025-07-22T09:16:09.841Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:09.842Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:09.842Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/-/functions [none]
+[debug] [2025-07-22T09:16:10.586Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/-/functions 200
+[debug] [2025-07-22T09:16:10.587Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/-/functions {"functions":[{"name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"decij-1eaab@appspot.gserviceaccount.com","updateTime":"2025-07-22T08:39:17.410994713Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"7c47e94776835639c86cb63357d4fc89b5255396"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/ad7cd5fa-c192-4902-9efa-c436d21e4390.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","ingressSettings":"ALLOW_ALL","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com","satisfiesPzi":true}]}
+[debug] [2025-07-22T09:16:10.587Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:10.587Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:10.588Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/decij-1eaab/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-07-22T09:16:11.095Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/decij-1eaab/locations/-/functions 200
+[debug] [2025-07-22T09:16:11.095Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/decij-1eaab/locations/-/functions {}
+[debug] [2025-07-22T09:16:11.104Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.105Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.105Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab [none]
+[debug] [2025-07-22T09:16:11.269Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab 200
+[debug] [2025-07-22T09:16:11.269Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/decij-1eaab {"projectNumber":"627464272434","projectId":"decij-1eaab","lifecycleState":"ACTIVE","name":"DeciJ","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-16T03:47:42.472595Z"}
+[debug] [2025-07-22T09:16:11.270Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.270Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.270Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/decij-1eaab/billingInfo [none]
+[debug] [2025-07-22T09:16:11.861Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/decij-1eaab/billingInfo 200
+[debug] [2025-07-22T09:16:11.861Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/decij-1eaab/billingInfo {"name":"projects/decij-1eaab/billingInfo","projectId":"decij-1eaab","billingAccountName":"billingAccounts/014B22-38CA5F-CE6BA8","billingEnabled":true}
+[debug] [2025-07-22T09:16:11.863Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.863Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:11.863Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-07-22T09:16:11.863Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2025-07-22T09:16:12.536Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-07-22T09:16:12.537Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D"}
+[debug] [2025-07-22T09:16:12.539Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip GoogleAccessId=service-627464272434%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D
+[debug] [2025-07-22T09:16:12.539Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip [stream]
+[debug] [2025-07-22T09:16:13.064Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip 200
+[debug] [2025-07-22T09:16:13.064Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 20 (1st Gen) function api(us-central1)... 
+[debug] [2025-07-22T09:16:13.070Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:13.070Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:13.070Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions/api updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2ChttpsTrigger.securityLevel%2CminInstances%2CmaxInstances%2CingressSettings%2CenvironmentVariables%2CserviceAccountEmail%2CavailableMemoryMb%2Ctimeout%2CvpcConnector%2CvpcConnectorEgressSettings%2CsourceToken%2CbuildEnvironmentVariables
+[debug] [2025-07-22T09:16:13.070Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions/api {"name":"projects/decij-1eaab/locations/us-central1/functions/api","sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","entryPoint":"api","runtime":"nodejs20","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2025-07-22T09:16:13.625Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions/api 200
+[debug] [2025-07-22T09:16:13.625Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/decij-1eaab/locations/us-central1/functions/api {"name":"operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/decij-1eaab/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","updateTime":"2025-07-22T08:39:14.474Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2025-07-22T09:16:12Z"}}
+[debug] [2025-07-22T09:16:13.627Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:13.627Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:13.628Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn [none]
+[debug] [2025-07-22T09:16:13.865Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn 200
+[debug] [2025-07-22T09:16:13.865Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn {"name":"operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/decij-1eaab/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","updateTime":"2025-07-22T08:39:14.474Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2025-07-22T09:16:12Z"}}
+[debug] [2025-07-22T09:16:14.381Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-07-22T09:16:14.381Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:14.382Z] Checked if tokens are valid: true, expires at: 1753176674518
+[debug] [2025-07-22T09:16:14.382Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn [none]
+[debug] [2025-07-22T09:16:14.585Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn 200
+[debug] [2025-07-22T09:16:14.585Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn {"name":"operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/decij-1eaab/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","updateTime":"2025-07-22T08:39:14.474Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2025-07-22T09:16:12Z","buildId":"39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc","buildName":"projects/627464272434/locations/us-central1/builds/39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc"}}
+[debug] [2025-07-22T09:16:15.585Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-07-22T09:16:15.586Z] Checked if tokens are valid: false, expires at: 1753176674518
+[debug] [2025-07-22T09:16:15.586Z] Checked if tokens are valid: false, expires at: 1753176674518
+[debug] [2025-07-22T09:16:15.587Z] > refreshing access token with scopes: []
+[debug] [2025-07-22T09:16:15.591Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-22T09:16:15.591Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-22T09:16:15.880Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-22T09:16:15.880Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-22T09:16:15.894Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn [none]
+[debug] [2025-07-22T09:16:16.108Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn 200
+[debug] [2025-07-22T09:16:16.108Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn {"name":"operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/decij-1eaab/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","updateTime":"2025-07-22T08:39:14.474Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2025-07-22T09:16:12Z","buildId":"39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc","buildName":"projects/627464272434/locations/us-central1/builds/39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc"}}
+[debug] [2025-07-22T09:16:18.122Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-07-22T09:16:18.122Z] Checked if tokens are valid: true, expires at: 1753179374880
+[debug] [2025-07-22T09:16:18.123Z] Checked if tokens are valid: true, expires at: 1753179374880
+[debug] [2025-07-22T09:16:18.123Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn [none]
+[debug] [2025-07-22T09:16:18.302Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn 200
+[debug] [2025-07-22T09:16:18.303Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn {"name":"operations/ZGVjaWotMWVhYWIvdXMtY2VudHJhbDEvYXBpL1lieG1Xb0VBYkZn","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/decij-1eaab/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/decij-1eaab/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-decij-1eaab.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","updateTime":"2025-07-22T08:39:14.474Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"a5eeae7f9a0b486d191ac360630d7334a0622c7a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1071325537859.us-central1.cloudfunctions.appspot.com/49054bc6-5235-4690-92cc-bc90c9bff99e.zip?GoogleAccessId=service-627464272434@gcf-admin-robot.iam.gserviceaccount.com&Expires=1753177571&Signature=kvEzACEv4QIEoI6P5qA8ujWYpz9CffagPxXUsZiwcDyqdaIiNHa2IWmykISFuPNQdaKW4q6Csb%2BRXTpO%2Br%2FvtZkRGn0egeyDMFtZtgLdQrVpywRJuCxAPi0CVumpw923zWj9CfyqaQxQsZoSnp8Ot3S3H73T36SiLSgAhcNEly9FLklT5IyZYCGn%2BWM28kSjXxNG6r97%2FXMcBQNlDVFImeG6wYAfOXvOg6h2wFEtUk5IoDBpXeI2laC8QLtelYfanvRk2pq8049o9kUJugmo%2F8jLhzK3xUPbHtl7VmT1l245zi4BSIYQRdT4xjXxf7RMwnTlsDs6ZLxi2S2qq9kszA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"decij-1eaab\",\"storageBucket\":\"decij-1eaab.firebasestorage.app\"}","GCLOUD_PROJECT":"decij-1eaab","EVENTARC_CLOUD_EVENT_SOURCE":"projects/decij-1eaab/locations/us-central1/functions/api"},"runtime":"nodejs20","buildId":"7e79c29b-b61c-4e2c-97ad-a34e82c02120","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/627464272434/locations/us-central1/builds/7e79c29b-b61c-4e2c-97ad-a34e82c02120","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/decij-1eaab/serviceAccounts/627464272434-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2025-07-22T09:16:12Z","buildId":"39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc","buildName":"projects/627464272434/locations/us-central1/builds/39857cf1-d3f3-4d62-b5c4-2ea8ff9dc4fc"}}
