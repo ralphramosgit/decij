@@ -1,101 +1,63 @@
-name: Deploy to EC2
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+- name: Deploy to EC2
+  run: |
+    # Setup SSH key
+    mkdir -p ~/.ssh
+    echo "${{ secrets.EC2_PRIVATE_KEY }}" | base64 -d > ~/.ssh/deploy_key
+    chmod 600 ~/.ssh/deploy_key
     
-    steps:
-    - uses: actions/checkout@v3
+    # Add EC2 to known hosts
+    ssh-keyscan 3.101.105.213 >> ~/.ssh/known_hosts
     
-    - name: Deploy to EC2
-      run: |
-        # Setup SSH key
-        mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_PRIVATE_KEY }}" | base64 -d > ~/.ssh/deploy_key
-        chmod 600 ~/.ssh/deploy_key
-        
-        # Add EC2 to known hosts to avoid host verification
-        ssh-keyscan 3.101.105.213 >> ~/.ssh/known_hosts
-        
-        # Test SSH connection first
-        echo "Testing SSH connection..."
-        ssh -i ~/.ssh/deploy_key -o ConnectTimeout=10 ec2-user@3.101.105.213 "echo 'SSH connection successful'"
-        
-        # Deploy to EC2 with better error handling
-        echo "Starting deployment..."
-        ssh -i ~/.ssh/deploy_key ec2-user@3.101.105.213 << 'EOF'
-        echo "Connected to EC2 successfully!"
-        echo "Current directory: $(pwd)"
-        echo "Available space: $(df -h ~)"
-        
-        # Clone repo if it doesn't exist
-        if [ ! -d "decij" ]; then
-          echo "Cloning repository..."
-          git clone https://github.com/ralphramosgit/decij.git decij || { echo "Git clone failed"; exit 1; }
-        else
-          echo "Repository already exists"
-        fi
-        
-        # Navigate and update
-        echo "Updating code..."
-        cd decij || { echo "Failed to cd into decij"; exit 1; }
-        
-        echo "Current git status:"
-        git status
-        
-        echo "Fetching latest changes..."
-        git fetch origin || { echo "Git fetch failed"; exit 1; }
-        
-        echo "Resetting to latest main..."
-        git reset --hard origin/main || { echo "Git reset failed"; exit 1; }
-        
-        # Check Docker
-        echo "Checking Docker..."
-        docker --version || { echo "Docker not available"; exit 1; }
-        docker ps -a
-        
-        # Stop existing container
-        echo "Stopping existing container..."
-        if docker ps | grep -q decij-backend; then
-          docker stop decij-backend || { echo "Failed to stop container"; exit 1; }
-          echo "Container stopped"
-        else
-          echo "No running container found"
-        fi
-        
-        if docker ps -a | grep -q decij-backend; then
-          docker rm decij-backend || { echo "Failed to remove container"; exit 1; }
-          echo "Container removed"
-        else
-          echo "No container to remove"
-        fi
-        
-        # Build new image
-        echo "Building Docker image..."
-        docker build -t decij-backend . || { echo "Docker build failed"; exit 1; }
-        
-        # Run new container
-        echo "Starting new container..."
-        docker run -d --name decij-backend -p 5000:5000 \
-          -e GROQ_API_KEY=${{ secrets.GROQ_API_KEY }} \
-          decij-backend || { echo "Failed to start container"; exit 1; }
-        
-        # Verify deployment
-        echo "Verifying deployment..."
-        sleep 5
-        if docker ps | grep -q decij-backend; then
-          echo "✅ Container is running successfully!"
-          docker ps | grep decij-backend
-        else
-          echo "❌ Container failed to start"
-          echo "Container logs:"
-          docker logs decij-backend
-          exit 1
-        fi
-        
-        echo "🎉 Deployment complete!"
-        EOF
+    # Deploy to EC2
+    echo "Starting deployment..."
+    # Pass the secret as an environment variable to the SSH command
+    GROQ_API_KEY=${{ secrets.GROQ_API_KEY }} ssh -i ~/.ssh/deploy_key ec2-user@3.101.105.213 << 'EOF'
+      set -e # Exit immediately if a command exits with a non-zero status.
+
+      echo "Connected to EC2. Updating code..."
+      cd /home/ec2-user # Navigate to a known directory
+      
+      # Clone or update the repository
+      if [ ! -d "decij" ]; then
+        git clone https://github.com/ralphramosgit/decij.git decij
+      fi
+      cd decij
+      git fetch origin
+      git reset --hard origin/main
+      
+      # Check Docker
+      echo "Checking Docker..."
+      docker --version
+      
+      # Stop and remove existing container if it exists
+      if [ $(docker ps -a -q -f name=decij-backend) ]; then
+        echo "Stopping and removing existing container..."
+        docker stop decij-backend
+        docker rm decij-backend
+      else
+        echo "No existing container found to stop or remove."
+      fi
+      
+      # Build new image
+      echo "Building Docker image..."
+      docker build -t decij-backend .
+      
+      # Run new container, using the environment variable passed to SSH
+      echo "Starting new container..."
+      docker run -d --name decij-backend -p 5000:5000 \
+        -e GROQ_API_KEY=$GROQ_API_KEY \
+        decij-backend
+      
+      # Verify deployment
+      echo "Verifying deployment..."
+      sleep 5
+      if docker ps | grep -q decij-backend; then
+        echo "✅ Container is running successfully!"
+      else
+        echo "❌ Container failed to start. Checking logs..."
+        docker logs decij-backend
+        exit 1
+      fi
+      
+      echo "🎉 Deployment complete!"
+    EOF

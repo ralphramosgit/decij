@@ -28,14 +28,6 @@ const Analyzer: React.FC = () => {
 
         setLoading(true)
 
-
-        const proxyUrls = [
-            'https://corsproxy.io/?',
-            'https://cors-anywhere.herokuapp.com/',
-            'https://proxy.cors.sh/',
-            'https://api.codetabs.com/v1/proxy?quest='
-        ];
-
         try {
 
         const isDevelopment = window.location.hostname === 'localhost';
