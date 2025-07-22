@@ -100,11 +100,13 @@ export default function Roadmap() {
     try {
 
 
-      const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://3.101.105.213:5000/api/career-roadmap'
-        : 'http://3.101.105.213/api/career-roadmap';
+      // const baseUrl = window.location.hostname === 'localhost'
+      //   ? 'http://3.101.105.213:5000/api/career-roadmap'
+      //   : 'http://3.101.105.213/api/career-roadmap';
 
-        console.log('Using URL:', baseUrl);
+      //   console.log('Using URL:', baseUrl);
+
+      const baseUrl = 'http://3.101.105.213/api/career-roadmap'
 
 
       const response = await fetch(baseUrl, {
@@ -151,7 +153,7 @@ export default function Roadmap() {
               value={careerTitle}
               onChange={(e) => setCareerTitle(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="e.g., Software Engineer, Data Scientist, Product Manager"
+              placeholder="e.g., Software Engineer, Data Scientist, Network Engineer, Product Manager"
               disabled={loading}
             />
           </div>

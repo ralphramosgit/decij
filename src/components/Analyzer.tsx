@@ -33,12 +33,14 @@ const Analyzer: React.FC = () => {
 
 
             // Use the proxy for the deployed site, otherwise use the direct URL for local development
-            const baseUrl = window.location.hostname === 'localhost'
-                ? 'http://3.101.105.213:5000/api/analyze-career'
-                : 'http://3.101.105.213/api/analyze-career';
+            // const baseUrl = window.location.hostname === 'localhost'
+            //     ? 'http://3.101.105.213:5000/api/analyze-career'
+            //     : 'http://3.101.105.213/api/analyze-career';
 
-            console.log('Using URL:', baseUrl);
+            // console.log('Using URL:', baseUrl);
 
+
+            const baseUrl = 'http://3.101.105.213/api/analyze-career'
 
 
             // http://3.101.105.213:5000/api/analyze-career
