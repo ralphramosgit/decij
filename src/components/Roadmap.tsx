@@ -100,17 +100,11 @@ export default function Roadmap() {
     try {
 
 
-      const proxyUrl = 'https://corsproxy.io/?'; // Select one reliable proxy
-      const targetUrl = 'http://3.101.105.213:5000/api/analyze-career';
+      const baseUrl = window.location.hostname === 'localhost'
+        ? 'http://3.101.105.213:5000/api/analyze-career'
+        : 'http://3.101.105.213:5000/api/analyze-career';
 
-      const isDevelopment = window.location.hostname === 'localhost';
-
-      // Use the proxy for the deployed site, otherwise use the direct URL for local development
-      const baseUrl = isDevelopment 
-          ? targetUrl
-          : proxyUrl + encodeURIComponent(targetUrl);
-
-      console.log('Using URL:', baseUrl);
+        console.log('Using URL:', baseUrl);
 
 
       const response = await fetch(baseUrl, {
